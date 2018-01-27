@@ -1,0 +1,3 @@
+create database pragmatic;
+create user 'pragmatic'@localhost identified by 'pragmatic';
+grant all privileges on pragmatic.* to pragmatic@localhost;
