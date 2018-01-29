@@ -73,6 +73,6 @@ public class CloseBasket {
         Assert.assertTrue(!open);
 
         //CleanUp
-  //      basketDao.delete(basket);
+        basketDao.delete(basket);
     }
 }
