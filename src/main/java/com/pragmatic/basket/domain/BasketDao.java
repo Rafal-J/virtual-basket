@@ -11,8 +11,6 @@ import java.util.Optional;
 @Transactional
 @Repository
 public interface BasketDao extends CrudRepository<Basket, Integer> {
-
-    @Query(nativeQuery = true)
-    Basket findOpenBasket(@Param("USER_ID") int user_id);
-
+    @Query
+    Basket findBasketByUserIdAndOpen(int userId, boolean open);
 }

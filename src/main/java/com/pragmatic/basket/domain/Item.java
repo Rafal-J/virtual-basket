@@ -36,8 +36,7 @@ public class Item {
 
     @OneToMany(
             targetEntity = BasketItem.class,
-            mappedBy = "item",
-            fetch = FetchType.LAZY
+            mappedBy = "item"
     )
     private List<BasketItem> basketItems = new ArrayList<>();
 

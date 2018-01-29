@@ -1,5 +1,6 @@
 package com.pragmatic.basket.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,11 +25,12 @@ public class BasketItem {
     private int qty;
 
     @ManyToOne
-    @JoinColumn(name = "BASKET_ID")
+    @JoinColumn(name = "BASKETID")
+    @JsonIgnore
     private Basket basket;
 
     @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "ITEMID")
     private Item item;
 
     public BasketItem(int qty) {

@@ -1,5 +1,6 @@
 package com.pragmatic.basket.domain;
 
+import com.pragmatic.basket.service.DbService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,20 +12,23 @@ import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BasketTestSuite {
+public class CloseBasket {
     @Autowired
     BasketDao basketDao;
 
     @Autowired
     ItemDao itemDao;
 
+    @Autowired
+    DbService dbService;
+
     @Test
-    public void testAddingNewItemsAndBasket() {
+    public void testGetBasketTotalAmount() {
         //Given
         Item item1 = new Item("Klamka", new BigDecimal("10.51"), 5, new BigDecimal("8.99"));
         Item item2 = new Item("Kontakt", new BigDecimal("22.00"), 8, new BigDecimal("20.50"));
 
-        BasketItem basketItem1 = new BasketItem(14);
+        BasketItem basketItem1 = new BasketItem(4);
         BasketItem basketItem2 = new BasketItem(10);
 
         item1.getBasketItems().add(basketItem1);
@@ -44,11 +48,10 @@ public class BasketTestSuite {
         itemDao.save(item1);
         itemDao.save(item2);
         basketDao.save(basket);
-        int id = basket.getId();
+        BigDecimal sum = dbService.getBasketTotalAmount(basket.getId());
 
         //Then
-        Assert.assertNotEquals(0, id);
-        Assert.assertTrue(itemDao.count() >= 2L);
+        Assert.assertEquals(new BigDecimal("247.04"), sum);
 
         //CleanUp
         basketDao.delete(basket);
@@ -57,25 +60,19 @@ public class BasketTestSuite {
     }
 
     @Test
-    public void testGetOpenBasket() {
+    public void testCloseBasket() {
         //Given
-        Basket basket1 = new Basket(112, true);
-        Basket basket2 = new Basket(112, false);
-        Basket basket3 = new Basket(112, false);
+        Basket basket = new Basket(32, true);
 
         //When
-        basketDao.save(basket1);
-        basketDao.save(basket2);
-        basketDao.save(basket3);
-        Basket basket4 = basketDao.findBasketByUserIdAndOpen(112, true);
-        int id = basket4.getId();
+        basketDao.save(basket);
+        basket = dbService.closeBasket(basket.getId());
+        boolean open = basketDao.findOne(basket.getId()).isOpen();
 
         //Then
-        Assert.assertNotEquals(0, id);
+        Assert.assertTrue(!open);
 
         //CleanUp
-        basketDao.delete(basket1);
-        basketDao.delete(basket2);
-        basketDao.delete(basket3);
+  //      basketDao.delete(basket);
     }
 }
