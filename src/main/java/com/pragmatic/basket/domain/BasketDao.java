@@ -5,12 +5,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
 
 @Transactional
 @Repository
 public interface BasketDao extends CrudRepository<Basket, Integer> {
     @Query
-    Basket findBasketByUserIdAndOpen(int userId, boolean open);
+    Basket findBasketByUserIdAndOpen(int  userId, boolean open);
 }

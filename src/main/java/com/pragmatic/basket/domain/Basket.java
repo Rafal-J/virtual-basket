@@ -9,12 +9,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "BASKETS")
+@NoArgsConstructor
 @Getter
 @Setter
-
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +21,7 @@ public class Basket {
     @Column(name = "Basket_ID", unique = true)
     private int id;
 
-    @Column(name = "UserID")
+    @Column(name = "User_ID")
     private int userId;
 
     @Column(name = "Open")
@@ -39,6 +38,4 @@ public class Basket {
         this.userId = user_id;
         this.open = open;
     }
-
-
 }

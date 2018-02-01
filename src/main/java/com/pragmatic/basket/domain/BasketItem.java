@@ -8,12 +8,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@NoArgsConstructor
 @Entity
-@Table(name = "BASKETITEMS")
+@Table(name = "BASKET_ITEMS")
+@NoArgsConstructor
 @Getter
 @Setter
-
 public class BasketItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,12 +24,12 @@ public class BasketItem {
     private int qty;
 
     @ManyToOne
-    @JoinColumn(name = "BASKETID")
+    @JoinColumn(name = "BASKET_ID")
     @JsonIgnore
     private Basket basket;
 
     @ManyToOne
-    @JoinColumn(name = "ITEMID")
+    @JoinColumn(name = "ITEM_ID")
     private Item item;
 
     public BasketItem(int qty) {

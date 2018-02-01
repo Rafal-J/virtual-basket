@@ -12,13 +12,13 @@ import java.math.BigDecimal;
 @Repository
 public class DbService {
     @Autowired
-    BasketDao basketDao;
+    private BasketDao basketDao;
 
     @Autowired
-    ItemDao itemDao;
+    private ItemDao itemDao;
 
     @Autowired
-    BasketItemDao basketItemDao;
+    private BasketItemDao basketItemDao;
 
     public Basket getUserBasket(int userId) {
         return basketDao.findBasketByUserIdAndOpen(userId, true);
@@ -113,7 +113,6 @@ public class DbService {
     public BigDecimal getBasketTotalAmount(int basketId) {
         Basket basket = basketDao.findOne(basketId);
         BigDecimal sum = BigDecimal.ZERO;
-        Item tempItem;
         BigDecimal tempPrice = BigDecimal.ZERO;
         for(BasketItem basketItem : basket.getBasketItems()) {
             tempPrice = getItemPrice(basketItem.getItem().getId(), basketItem.getQty());

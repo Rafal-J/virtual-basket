@@ -1,7 +1,5 @@
-package com.pragmatic.basket;
+Dokumentacja kontrolera restowego: http://localhost:8080/swagger-ui.html
 
-public class TrescZadania {
-    /*
     Technical Task for Junior Java Developer position at Pragmatic Coders
 
 Checkout Component 3.0
@@ -31,5 +29,3 @@ Technical requirements:
 6. It ought to be written in Java 8.
 7. If requested, please use Spring or any other framework, otherwise, the choice is yours.
 8. Please include a short description of how to build and execute your project in e.g. README.md file. It it's up to you to make your own assumptions about the code and assignment. Each assumption should be captured as part of README.md file, so that we can review them before reading a code. There are no good and bad answers here. You can put there any other information that you would like to share with us like important classes, design overview, the rationale for your choices etc.
-     */
-}

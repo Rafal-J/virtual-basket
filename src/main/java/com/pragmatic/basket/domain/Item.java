@@ -1,5 +1,6 @@
 package com.pragmatic.basket.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +11,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "ITEMS")
+@NoArgsConstructor
 @Getter
 @Setter
 public class Item {
@@ -34,6 +35,7 @@ public class Item {
     @Column(name = "DiscountedPrice")
     private BigDecimal discountedPrice;
 
+    @JsonIgnore
     @OneToMany(
             targetEntity = BasketItem.class,
             mappedBy = "item"
