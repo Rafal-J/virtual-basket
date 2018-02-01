@@ -32,6 +32,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-validation')
 	runtime('mysql:mysql-connector-java')
+	compile('org.liquibase:liquibase-gradle-plugin:1.1.0')
+	compile('org.liquibase.ext:liquibase-hibernate5:3.6')
 
 	compile('io.springfox:springfox-swagger2:2.7.0')
 	compile('io.springfox:springfox-swagger-ui:2.7.0')
