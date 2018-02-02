@@ -1,3 +1,82 @@
 databaseChangeLog:
-    - includeAll:
-        path: db/changelog/
+  - changeSet:
+      id: 1
+      author: rj
+      changes:
+        - createTable:
+            tableName: baskets
+            columns:
+              - column:
+                  name: basket_id
+                  type: int(11)
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: open
+                  type: boolean
+              - column:
+                  name: user_id
+                  type: int(11)
+  - changeSet:
+        id: 2
+        author: rj
+        changes:
+          - createTable:
+              tableName: items
+              columns:
+                - column:
+                    name: item_id
+                    type: int(11)
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: name
+                    type: varchar(255)
+                - column:
+                    name: price
+                    type: decimal(19,2)
+                - column:
+                    name: discount_at_qty
+                    type: int(11)
+                - column:
+                    name: discounted_price
+                    type: decimal(19,2)
+  - changeSet:
+        id: 3
+        author: rj
+        changes:
+          - createTable:
+              tableName: basket_items
+              columns:
+                - column:
+                    name: basket_item_id
+                    type: int(11)
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: qty
+                    type: int(11)
+                - column:
+                    name: basket_id
+                    type: int(11)
+                - column:
+                    name: item_id
+                    type: int(11)
+          - addForeignKeyConstraint:
+              baseColumnNames: basket_id
+              baseTableName: basket_items
+              constraintName: basket_id_baskets
+              referencedColumnNames: basket_id
+              referencedTableName: baskets
+          - addForeignKeyConstraint:
+              baseColumnNames: item_id
+              baseTableName: basket_items
+              constraintName: item_id_items
+              referencedColumnNames: item_id
+              referencedTableName: items
