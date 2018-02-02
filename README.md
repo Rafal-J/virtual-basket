@@ -2,7 +2,7 @@ Katalog główny zawiera plik exampleData.sql, który dodaje do bazy przykładow
 Przed dodaniem przykładowych danych trzeba uruchomić aplikację, aby
 Liquibase utworzył tabele.
 
-Dokumentacja kontrolera restowego: http://localhost:8080/swagger-ui.html
+Dokumentacja kontrolera restowego dostępna po uruchomieniu aplikacji: http://localhost:8080/swagger-ui.html
 
 
     Technical Task for Junior Java Developer position at Pragmatic Coders
