@@ -20,7 +20,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    @Column(name = "Item_ID", unique = true)
+    @Column(name = "item_id", unique = true)
     private int id;
 
     @Column(name = "Name")
@@ -40,6 +40,7 @@ public class Item {
             targetEntity = BasketItem.class,
             mappedBy = "item"
     )
+
     private List<BasketItem> basketItems = new ArrayList<>();
 
     public Item(String name, BigDecimal price, int discountAtQty, BigDecimal discountedPrice) {

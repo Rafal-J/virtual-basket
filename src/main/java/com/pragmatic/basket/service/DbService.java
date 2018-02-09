@@ -1,6 +1,9 @@
 package com.pragmatic.basket.service;
 
 import com.pragmatic.basket.domain.*;
+import com.pragmatic.basket.domain.dao.BasketDao;
+import com.pragmatic.basket.domain.dao.BasketItemDao;
+import com.pragmatic.basket.domain.dao.ItemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.stereotype.Repository;

@@ -1,5 +1,7 @@
 package com.pragmatic.basket.domain;
 
+import com.pragmatic.basket.domain.dao.BasketDao;
+import com.pragmatic.basket.domain.dao.ItemDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

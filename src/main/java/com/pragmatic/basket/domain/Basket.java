@@ -18,13 +18,13 @@ public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    @Column(name = "Basket_ID", unique = true)
+    @Column(name = "basket_id", unique = true)
     private int id;
 
-    @Column(name = "User_ID")
+    @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "Open")
+    @Column(name = "open")
     private boolean open;
 
     @OneToMany(

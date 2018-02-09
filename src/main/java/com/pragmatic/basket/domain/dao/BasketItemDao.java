@@ -1,5 +1,6 @@
-package com.pragmatic.basket.domain;
+package com.pragmatic.basket.domain.dao;
 
+import com.pragmatic.basket.domain.BasketItem;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

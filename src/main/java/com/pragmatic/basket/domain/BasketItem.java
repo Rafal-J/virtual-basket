@@ -17,14 +17,14 @@ public class BasketItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "BasketItem_ID", unique = true)
+    @Column(name = "basket_item_id", unique = true)
     private int id;
 
-    @Column(name = "QTY")
+    @Column(name = "qty")
     private int qty;
 
     @ManyToOne
-    @JoinColumn(name = "BASKET_ID")
+    @JoinColumn(name = "basket_id")
     @JsonIgnore
     private Basket basket;
 
