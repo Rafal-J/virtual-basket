@@ -35,14 +35,6 @@ public class Item {
     @Column(name = "DiscountedPrice")
     private BigDecimal discountedPrice;
 
-    @JsonIgnore
-    @OneToMany(
-            targetEntity = BasketItem.class,
-            mappedBy = "item"
-    )
-
-    private List<BasketItem> basketItems = new ArrayList<>();
-
     public Item(String name, BigDecimal price, int discountAtQty, BigDecimal discountedPrice) {
         this.name = name;
         this.price = price;

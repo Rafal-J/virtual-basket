@@ -33,9 +33,6 @@ public class CloseBasket {
         BasketItem basketItem1 = new BasketItem(4);
         BasketItem basketItem2 = new BasketItem(10);
 
-        item1.getBasketItems().add(basketItem1);
-        item2.getBasketItems().add(basketItem2);
-
         basketItem1.setItem(item1);
         basketItem2.setItem(item2);
 

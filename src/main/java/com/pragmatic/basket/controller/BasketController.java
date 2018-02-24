@@ -36,7 +36,6 @@ public class BasketController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/basketitem/{userId}/{itemId}/{itemQty}")
     public Basket addBasketItem(@PathVariable("userId") Integer userId, @PathVariable("itemId") Integer itemId, @PathVariable("itemQty") Integer itemQty) {
-        System.out.println("W KOSZYKU: " + dbService.addBasketItem(userId, itemId, itemQty).getBasketItems().size());
         return dbService.addBasketItem(userId, itemId, itemQty);
     }
 

@@ -42,9 +42,6 @@ public class BasketControllerTest {
         BasketItem basketItem1 = new BasketItem(14);
         BasketItem basketItem2 = new BasketItem(10);
 
-        item1.getBasketItems().add(basketItem1);
-        item2.getBasketItems().add(basketItem2);
-
         basketItem1.setItem(item1);
         basketItem2.setItem(item2);
 
@@ -54,6 +51,7 @@ public class BasketControllerTest {
 
         basketItem1.setBasket(basket);
         basketItem2.setBasket(basket);
+
         return basket;
     }
 
